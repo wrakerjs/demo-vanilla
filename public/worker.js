@@ -1,5 +1,8 @@
 // Worker thread context
-import { WrakerApp } from "https://cdn.jsdelivr.net/npm/wraker@0.5.2/+esm";
+import { WrakerApp } from "https://cdn.jsdelivr.net/npm/@wraker/core@0.5.3/+esm";
+
+console.log("[Worker] Worker is starting...");
+console.log(WrakerApp);
 
 const app = new WrakerApp();
 

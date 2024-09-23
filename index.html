@@ -6,8 +6,11 @@
 
     <script type="module">
       // Main thread context
-      import { Wraker } from "https://cdn.jsdelivr.net/npm/wraker@0.5.2/+esm";
+      import { Wraker } from "https://cdn.jsdelivr.net/npm/@wraker/core@0.5.3/+esm";
       globalThis.Wraker = Wraker;
+
+      console.log("Wraker loaded");
+      console.log(Wraker);
     </script>
 
     <script type="module">
