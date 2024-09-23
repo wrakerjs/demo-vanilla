@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="module">
+      // Main thread context
+      import { Wraker } from "https://cdn.jsdelivr.net/npm/wraker@0.5.2/+esm";
+      globalThis.Wraker = Wraker;
+    </script>
+
+    <script type="module">
+      const worker = new Wraker("/public/worker.js", {
+        name: "my-worker",
+        type: "module",
+      });
+
+      worker.fetch("/hello").then((response) => {
+        if (response.error) {
+          document.getElementById("error").innerText = response.error;
+        } else {
+          document.getElementById("data").innerText = response.body;
+        }
+      });
+    </script>
+
+    <style>
+      p {
+        font-size: 2rem;
+      }
+
+      #data {
+        color: green;
+      }
+
+      #error {
+        color: red;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="data"></p>
+    <p id="error"></p>
+  </body>
+</html>
